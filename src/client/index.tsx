@@ -1,13 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { usePartySocket } from "partysocket/react";
 import React, { useState } from "react";
-import {
-	BrowserRouter,
-	Routes,
-	Route,
-	Navigate,
-	useParams,
-} from "react-router";
+// Removed unused imports: BrowserRouter, Routes, Route, Navigate, useParams
 import { nanoid } from "nanoid";
 
 import { names, type ChatMessage, type Message } from "../shared";
@@ -15,7 +9,9 @@ import { names, type ChatMessage, type Message } from "../shared";
 function App() {
 	const [name] = useState(names[Math.floor(Math.random() * names.length)]);
 	const [messages, setMessages] = useState<ChatMessage[]>([]);
-	const { room } = "EWHS";
+	
+	// FIX 1: Correctly declare the constant room name. This was crashing the component.
+	const room = "EWHS";
 
 	const socket = usePartySocket({
 		party: "chat",
@@ -119,8 +115,6 @@ function App() {
 	);
 }
 
+// FIX 2: Simple render call without unnecessary routing wrappers.
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-createRoot(document.getElementById("root")!).render(
-	// Render the App component directly, removing all routing logic
-    <App />
-);
+createRoot(document.getElementById("root")!).render(<App />);
