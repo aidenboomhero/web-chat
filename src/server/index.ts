@@ -16,6 +16,25 @@ export class Chat extends Server<Env> {
 		this.broadcast(JSON.stringify(message), exclude);
 	}
 
+	// Inside the 'Chat' class in your server file (e.g., src/server.ts)
+
+private forbiddenWords: string[] = [
+  'ass', 'bitch', 'crap', 'damn', 'dick', 'fuck', 'hell', 'piss', 'shit', 'wank', 'cock' // You can customize this list!
+];
+
+private filterProfanity(content: string): string {
+    let filteredContent = content; 
+    
+    for (const word of this.forbiddenWords) {
+        // Creates a regular expression for global (g) and case-insensitive (i) replacement
+        const regex = new RegExp(word, 'gi'); 
+        filteredContent = filteredContent.replace(regex, '****'); 
+    }
+    return filteredContent;
+}
+
+// ... The onStart() method follows here ...
+	
 	onStart() {
 		// this is where you can initialize things that need to be done before the server starts
 		// for example, load previous messages from a database or a service
