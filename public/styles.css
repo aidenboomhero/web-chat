@@ -53,25 +53,26 @@ html {
 /* In your CSS file (e.g., src/index.css) */
 
 #ad-banner {
-    /* POSITIONING CHANGE: FIXES THE BANNER TO THE TOP OF THE WINDOW */
-    position: fixed; 
-    top: 0;          
-    left: 0;         /* Ensures it spans the whole top edge */
-    z-index: 100;    /* Keeps it above the chat content */
+    /* POSITIONING: Fixes the banner to the top of the viewport */
+    position: fixed;
+    top: 0;
+    left: 0; /* Pin to the left edge */
+    right: 0; /* Pin to the right edge */
+    z-index: 100;
 
-    /* SIZE AND CENTERING */
-    width: 100%;     /* Make it span the full width of the screen */
-    max-width: 728px; 
-    height: 90px;    
-    
-    /* Centering the content inside the fixed container */
-    margin: 0 auto; 
+    /* CENTERING: Ensures the ad container is centered when screen > 728px */
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    margin: 0 auto; /* This correctly centers a fixed element between left:0 and right:0 */
+
+    /* CONTENT ALIGNMENT: Centers the script/iframe output */
     display: flex;
     justify-content: center;
     align-items: center;
 
     /* Appearance */
-    background-color: #ffffff; /* Add a white background so it covers content below it */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: small shadow for separation */
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
