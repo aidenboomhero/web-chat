@@ -19,6 +19,8 @@
 	"durable_objects": {
 		"bindings": [
 			{
+                "class_name":"Workers AI",
+				"name": "AI"
 				"class_name": "Chat",
 				"name": "Chat"
 			}
