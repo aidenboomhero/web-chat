@@ -11,7 +11,7 @@ function App() {
 	const [name, setName] = useState<string | null>(null);
 	const [messages, setMessages] = useState<ChatMessage[]>([]);
 	
-	const room = "EWHS";
+	const room = "EWHS2";
 
     // Ask the user for their name once when the component mounts
     useEffect(() => {
